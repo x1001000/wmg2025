@@ -180,9 +180,9 @@
         }
         
         .team-item {
-            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            background: linear-gradient(45deg, #FF0000, #CC0000);
             color: white;
-            border-radius: 10px;
+            border-radius: 40px;
             font-weight: 700;
             font-size: 18px;
             padding: 20px;
@@ -198,6 +198,7 @@
             z-index: 1;
             overflow: hidden;
             animation: pulseGlow 3s ease-in-out infinite;
+            border: 2px solid rgba(255,255,255,0.3);
         }
         
         .team-item:before {
@@ -217,11 +218,12 @@
         
         .team-item:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(255,0,0,0.5);
             color: white;
             text-decoration: none;
-            background: linear-gradient(45deg, #FF8E8E, #6EEEE6);
+            background: linear-gradient(45deg, #FF3333, #FF0000);
             animation: none;
+            border-color: rgba(255,255,255,0.8);
         }
         
         @keyframes pulseGlow {
@@ -243,7 +245,7 @@
         }
         
         .team-name {
-            font-size: 22px;
+            font-size: 20px;
         }
         
         .modal {
@@ -395,6 +397,16 @@
                 align-items: center;
                 justify-content: center;
                 line-height: 1;
+            }
+            
+            .team-name {
+                font-size: 18px;
+                line-height: 1.1;
+            }
+            
+            .team-item {
+                gap: 4px;
+                padding: 15px;
             }
         }
     </style>
