@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 世界壯年運動會 After Party 邀請卡</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .invitation-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+            background-size: 300% 300%;
+            animation: gradientShift 6s ease infinite;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .header::before {
+            content: '🏆';
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            font-size: 30px;
+            animation: bounce 2s infinite;
+        }
+        
+        .header::after {
+            content: '🎉';
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-size: 30px;
+            animation: bounce 2s infinite 0.5s;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .teams {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+        
+        .photo-collage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 200px 200px;
+            gap: 2px;
+            margin: 0;
+        }
+        
+        .photo {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .photo:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo-1 {
+            background-image: url('0-參賽起心動念.jpg');
+        }
+        
+        .photo-2 {
+            background-image: url('1-沙排幸運銅牌.jpg');
+        }
+        
+        .photo-3 {
+            background-image: url('2-籃球輕鬆獲勝.jpg');
+        }
+        
+        .photo-4 {
+            background-image: url('3-排球苦中作樂.jpg');
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .content {
+            padding: 30px;
+            line-height: 1.8;
+        }
+        
+        .story {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #4ECDC4;
+        }
+        
+        .story p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #2c3e50;
+        }
+        
+        .teams-highlight {
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .team-item {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+        
+        .team-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .team-item:hover:before {
+            left: 100%;
+        }
+        
+        .team-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5);
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(45deg, #FF8E8E, #6EEEE6);
+            animation: none;
+        }
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
+            50% { box-shadow: 0 0 15px rgba(255,255,255,0.6), 0 0 25px rgba(255,255,255,0.4); }
+            100% { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
+        }
+        
+        .team-item:visited {
+            color: white;
+        }
+        
+        .team-item:active {
+            color: white;
+        }
+        
+        .team-emoji {
+            font-size: 30px;
+        }
+        
+        .team-name {
+            font-size: 22px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+        
+        .event-details {
+            background: #fff;
+            border: 2px solid #4ECDC4;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        
+        .event-details h2 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+        
+        .detail-item:hover {
+            transform: translateX(5px);
+            background: #e9ecef;
+        }
+        
+        .detail-icon {
+            font-size: 20px;
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .detail-text {
+            font-size: 16px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .closing {
+            text-align: center;
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .photo-collage {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 150px);
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .teams {
+                font-size: 16px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-card">
+        <div class="header">
+            <h1>2025 世界壯年運動會<br>After Party 邀請卡</h1>
+            <div class="teams">台北一起衝 × Wakanda Taipei Forever</div>
+        </div>
+        
+        <div class="photo-collage">
+            <div class="photo photo-1">
+                <div class="photo-overlay">參賽起心動念</div>
+            </div>
+            <div class="photo photo-2">
+                <div class="photo-overlay">沙排幸運銅牌</div>
+            </div>
+            <div class="photo photo-3">
+                <div class="photo-overlay">籃球輕鬆獲勝</div>
+            </div>
+            <div class="photo photo-4">
+                <div class="photo-overlay">排球苦中作樂</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="story">
+                <p>一年多前，聽聞2025雙北將舉辦世界壯年運動會，立刻萌生「我要參賽！」的想法。</p>
+                <p>第一時間問08年實習學校的大尾組長一口答應後，接著找到台北啟聰一路相挺的兩位前同事、有一對排球少年兒女的國中同學、一起舉起過校長盃冠軍獎盃的大學同學、透過官網認識的夥伴，甚至南非遠道而來異父異母的兄弟姊妹，從人數不足一路集結成軍，終於我們組成了——</p>
+            </div>
+            
+            <div class="teams-highlight">
+                <a href="https://www.youtube.com/playlist?list=PLIDYXB5CCyJA89J3wggQAH0KZVtpsjAti" target="_blank" class="team-item">
+                    <div class="team-emoji">🏀</div>
+                    <div class="team-name">台北一起衝</div>
+                </a>
+                <a href="https://www.youtube.com/playlist?list=PLIDYXB5CCyJAzl4pQ2QEGYp9napdUmJGn" target="_blank" class="team-item">
+                    <div class="team-emoji">🏐</div>
+                    <div class="team-name">Wakanda Taipei Forever</div>
+                </a>
+            </div>
+            
+            <div class="story">
+                <p>年近五十的我們，揮灑汗水、燃燒熱血，見證了青春再現的時刻。</p>
+                <p>三週前世壯運畫下句點，現在，是時候開一場 after party 了！</p>
+            </div>
+            
+            <div class="event-details">
+                <h2>🎊 Party 詳情 🎊</h2>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">📅</div>
+                    <div class="detail-text"><strong>時間</strong> ｜ 6 月 28 日（五）17:30～22:00</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">🗺️</div>
+                    <div class="detail-text"><strong>地點</strong> ｜ 有間客棧 駐唱餐酒館（安和路一段73號，捷運忠孝敦化與信義安和站之間）</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">💵</div>
+                    <div class="detail-text"><strong>低消</strong> ｜ 飲料 NT$89（晚餐可吃可不吃，來就好！）</div>
+                </div>
+                
+                <div class="organizers">
+                    <div class="detail-item">
+                        <div class="detail-icon">🙋‍♂️</div>
+                        <div class="detail-text"><strong>主揪</strong> ｜ 北聰退休教師 <strong>兆騰老師</strong>、球莖 <strong>PHIL</strong></div>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">📸</div>
+                    <div class="detail-text"><strong>建議攜帶</strong> ｜ 戰袍（制服趴的概念）</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon">🚗</div>
+                    <div class="detail-text"><strong>溫馨提醒</strong> ｜ 別開車，放鬆一下 🍻</div>
+                </div>
+            </div>
+            
+            <div class="closing">
+                讓我們再次集合，一起為青春、為運動、為彼此喝采！<br>
+                <strong>活到老，運動到老，有你真好！</strong>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for photo viewing -->
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalCaption" style="text-align: center; margin-top: 15px; font-size: 16px; color: #333;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get modal elements
+        const modal = document.getElementById('photoModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
+        // Add click event to all photos
+        document.querySelectorAll('.photo').forEach(photo => {
+            photo.addEventListener('click', function() {
+                modal.style.display = 'block';
+                
+                // Get the background image URL
+                const bgImage = window.getComputedStyle(this).backgroundImage;
+                const imageUrl = bgImage.slice(4, -1).replace(/"/g, "");
+                
+                modalImg.src = imageUrl;
+                modalCaption.textContent = this.querySelector('.photo-overlay').textContent;
+            });
+        });
+
+        // Close modal when clicking the X
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
